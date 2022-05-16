@@ -2,7 +2,7 @@
 #define MAIN_H
 
 #include <stdlib.h>
-#include <stdarg.h>
+#include <stdout.h>
 
 typedef struct flags
 {
