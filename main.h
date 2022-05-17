@@ -2,33 +2,41 @@
 #define MAIN_H
 #include <stdarg.h>
 #include <stdout.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+int _printf(const char *format, ...);
+int print_char(va_list ap);
+int print_str(va_list ap);
+int print_nbr(va_list ap);
+int print_binary(va_list ap);
+int print_octal(va_list ap);
+int print_hexa_lower(va_list ap);
+int print_hexa_upper(va_list ap);
+int print_unsigned(va_list ap);
+int print_str_unprintable(va_list ap);
+int print_str_reverse(va_list ap);
+int print_ptr(va_list ap);
+int print_rot13(va_list ap);
+int print_percent(va_list ap __attribute__((unused)));
+int print_number(int n);
+int print_unsigned_number(unsigned int n);
+int _putchar(char c);
+int _puts(char *str, int ascii);
+int _nbr_len(int prmNumber);
+int _strlen_recursion(char *s);
+int convert_alpha_numeric(int nb, int upper);
+char *convert_rot13(char *str);
+char *convert_base(unsigned long nb, unsigned int base, int upper);
+char *_strdup(char *str);
+char *convert_base_pointer(unsigned long p);
 
 /**
- * struct fmt - function to check for formats
- * @type: The format to print
- * @f: The print function to use
+ * struct flags_printf - struct conversion to function
+ * @c: flag string
+ * @f: pointer to func
  */
-typedef struct fmt
-{
-	char *type;
-	int (*f)();
-} fmt_t;
 
-int _printf(const char *format, ...);
-int print_op(const char *format, fmt_t *print_arr, va_list list);
-int ch(va_list character);
-int str(va_list string);
-int _int(va_list integ);
-int _ui(va_list unsign);
-int _oct(va_list octo);
-int _rot13(va_list rot);
-int _hex_str(unsigned int n, unsigned int hex, char alpha);
-int _hex_l(va_list hexa);
-int _hex_u(va_list hexa);
-int _strlen(char *s);
-int _bin(va_list bin);
-int _putchar(char c);
+typedef struct flags_printf
+{
+	char *c;
+	int (*f)(va_list);
+} flags_p;
 #endif
