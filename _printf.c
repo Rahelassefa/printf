@@ -7,7 +7,7 @@
  * @list: list of arguments to print
  * Return: numb of char to be printed
  */
-int print_op(const char *format, fmt_t *print_arr, va_list list)
+/*int print_op(const char *format, fmt_t *print_arr, va_list list)
 {
 	char a;
 	int count = 0, b = 0, c = 0;
@@ -40,7 +40,7 @@ int print_op(const char *format, fmt_t *print_arr, va_list list)
 		a = format[b];
 	}
 	return (count);
-}
+} */
 
 /**
  * _printf - prints output according to format
